@@ -181,11 +181,7 @@ PRODUCT_PACKAGES += \
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-<<<<<<< HEAD
-    vendor.lineage.livedisplay@1.0-service-legacymm
-=======
-    vendor.mokee.livedisplay@2.0-service-legacymm
->>>>>>> b9a6f9c... msm8994-common: Build livedisplay 2.0 service
+    vendor.lineage.livedisplay@2.0-service-legacymm
 
 # OMX
 PRODUCT_PACKAGES += \
