@@ -2,7 +2,13 @@
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heaptargetutilization=0.75 \
     dalvik.vm.heapminfree=2m \
-    dalvik.vm.heapmaxfree=8m
+    dalvik.vm.heapmaxfree=8m \
+    pm.dexopt.install=speed \
+    pm.dexopt.bg-dexopt=speed \
+    pm.dexopt.boot=speed \
+    pm.dexopt.first-boot=speed \
+    dalvik.vm.dex2oat-filter=speed \
+    dalvik.vm.image-dex2oat-filter=speed
 
 PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
