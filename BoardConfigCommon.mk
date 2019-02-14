@@ -104,7 +104,6 @@ ifneq (,$(filter linux darwin, $(HOST_OS)))
 TARGET_USERIMAGES_USE_F2FS := true
 endif
 BOARD_FLASH_BLOCK_SIZE := 131072 #262144 #(BOARD_KERNEL_PAGESIZE * 64)
-
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
 # Camera
