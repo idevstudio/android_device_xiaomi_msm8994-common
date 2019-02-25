@@ -169,6 +169,9 @@ case "$target" in
 
 		# Set Memory parameters
 		echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
+
+        # android background processes are set to nice 10. Never schedule these on the a57s.
+        echo 9 > write /proc/sys/kernel/sched_upmigrate_min_nice
     ;;
 esac
 
@@ -321,8 +324,9 @@ case "$target" in
         do
             echo "cpufreq" > $devfreq_gov
         done
-        # change GPU initial power level from 305MHz(level 4) to 180MHz(level 5) for power savings
-        echo 5 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
+
+        # android background processes are set to nice 10. Never schedule these on the a57s.
+        echo 9 > write /proc/sys/kernel/sched_upmigrate_min_nice
     ;;
 esac
 
