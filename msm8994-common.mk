@@ -245,7 +245,7 @@ PRODUCT_PACKAGES += \
 
 # Trust HAL
 PRODUCT_PACKAGES += \
-    vendor.mokee.trust@1.0-service
+    vendor.lineage.trust@1.0-service
 
 # USB HAL
 PRODUCT_PACKAGES += \
