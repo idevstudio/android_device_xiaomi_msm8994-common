@@ -210,8 +210,8 @@ PRODUCT_DEX_PREOPT_DEFAULT_FLAGS := --compiler-filter=speed
 
 # Use Snapdragon LLVM, if available
 TARGET_USE_SDCLANG := true
-SDCLANG_PATH := vendor/qcom/sdclang-6.0/linux-x86/bin
-SDCLANG_LTO_DEFS := vendor/arrow/sdclang/sdllvm-lto-defs.mk
+SDCLANG_PATH := prebuilts/clang/host/linux-x86/sdclang/bin
+SDCLANG_LTO_DEFS := vendor/lineage/build/core/sdllvm-lto-defs.mk
 
 # Include addon-su
 WITH_SU := true
