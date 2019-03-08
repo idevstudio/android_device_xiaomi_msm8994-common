@@ -270,10 +270,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.button_jack_switch=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.mcd_config_file=/system/etc/mcd_default.conf \
-    persist.sys.klo=on \
-    persist.sys.whetstone.level=2 \
-    persist.sys.frozenKernel=true \
     ro.vendor.extension_library=libqti-perfd-client.so \
     persist.radio.custom_ecc=1 \
     persist.radio.sib16_support=1 \
