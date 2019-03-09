@@ -166,8 +166,13 @@ case "$target" in "msm8992")
 	# Enable sched_boost
 	echo 1 > /proc/sys/kernel/sched_boost
 
-	# Set Memory parameters
+	# Input boost configuration
+	echo 0:1280000 > /sys/module/cpu_boost/parameters/input_boost_freq
+	echo 100 > /sys/module/cpu_boost/parameters/input_boost_ms
+
+	# Set LMK parameters
 	echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
+	echo 0 > /sys/module/lowmemorykiller/parameters/debug_level
 
 	# Android background processes are set to nice 10. Never schedule these on the a57s.
 	echo 9 > /proc/sys/kernel/sched_upmigrate_min_nice
@@ -284,7 +289,7 @@ case "$target" in "msm8994")
 
 	# Input boost configuration
 	echo 0:1344000 > /sys/module/cpu_boost/parameters/input_boost_freq
-	echo 40 > /sys/module/cpu_boost/parameters/input_boost_ms
+	echo 100 > /sys/module/cpu_boost/parameters/input_boost_ms
 
 	# Configure core_ctl module parameters
 	echo 60 > /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres
@@ -334,6 +339,10 @@ case "$target" in "msm8994")
 	do
 		echo "cpufreq" > $devfreq_gov
 	done
+
+	# Set LMK parameters
+	echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
+	echo 0 > /sys/module/lowmemorykiller/parameters/debug_level
 
 	# Android background processes are set to nice 10. Never schedule these on the a57s.
 	echo 9 > /proc/sys/kernel/sched_upmigrate_min_nice
