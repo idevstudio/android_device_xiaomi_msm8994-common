@@ -83,7 +83,7 @@ WCNSS_FILTER_USES_SIBS := true
 TARGET_EXFAT_DRIVER := exfat
 
 # Kernel
-TARGET_KERNEL_SOURCE := kernel/xiaomi/leo
+TARGET_KERNEL_SOURCE := kernel/xiaomi/libra
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-5 loop.max_part=7 androidboot.selinux=permissive
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
