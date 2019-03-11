@@ -33,10 +33,10 @@ MAX_VIRTUAL_DISPLAY_DIMENSION := 2048
 TARGET_USES_HWC2 := true
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
-HAVE_ADRENO_SOURCE:= false
 OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 BOARD_USES_OPENSSL_SYMBOLS := true
-USE_OPENGL_RENDERER := true
+OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
+BOARD_USES_OPENSSL_SYMBOLS := true
 BOARD_USE_LEGACY_UI := true
 
 # Keymaster
@@ -44,7 +44,6 @@ TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 TARGET_PROVIDES_KEYMASTER := true
 
 # GPS
-TARGET_NO_RPC := true
 USE_DEVICE_SPECIFIC_GPS := true
 USE_DEVICE_SPECIFIC_LOC_API := true
 
@@ -84,8 +83,8 @@ WCNSS_FILTER_USES_SIBS := true
 TARGET_EXFAT_DRIVER := exfat
 
 # Kernel
-TARGET_KERNEL_SOURCE := kernel/xiaomi/leo
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-5 androidboot.selinux=permissive
+TARGET_KERNEL_SOURCE := kernel/xiaomi/libra
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-5 loop.max_part=7 androidboot.selinux=permissive
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
@@ -117,9 +116,6 @@ TARGET_CAMERASERVICE_CLOSES_NATIVE_HANDLES := true
 TARGET_NEEDS_LEGACY_CAMERA_HAL1_DYN_NATIVE_HANDLE := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
     /system/vendor/bin/mm-qcamera-daemon=22
-
-# Light HAL
-TARGET_PROVIDES_LIBLIGHT := true
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
@@ -180,7 +176,7 @@ WPA_SUPPLICANT_VERSION          := VER_0_8_X
 
 # Recovery
 BOARD_HAS_LARGE_FILESYSTEM := true
-TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.full
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
@@ -216,4 +212,3 @@ PRODUCT_DEX_PREOPT_DEFAULT_FLAGS := --compiler-filter=speed
 TARGET_USE_SDCLANG := true
 SDCLANG_PATH := vendor/qcom/sdclang-6.0/linux-x86/bin
 SDCLANG_LTO_DEFS := vendor/arrow/sdclang/sdllvm-lto-defs.mk
-

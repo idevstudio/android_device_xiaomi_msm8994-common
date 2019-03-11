@@ -138,9 +138,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qcom.ad.calib.data=/system/etc/calib.cfg \
     ro.qcom.ad.sensortype=2
 
-# Display feature support
-# bit0-ColorPrefer bit1-EyeCare bit2-AD bit3-CE bit4-CABC bit5-SRGB
-
 #
 # System props for telephony
 # System prop to turn on CdmaLTEPhone always
@@ -199,9 +196,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.audio.sdk.fluencetype=fluence \
     persist.vendor.audio.fluence.voicecall=true \
     persist.vendor.audio.fluence.voicerec=false \
-    persist.vendor.audio.fluence.speaker=true \
-    ro.config.media_vol_steps=25 \
-    ro.config.vc_call_vol_steps=7
+    persist.vendor.audio.fluence.speaker=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.sensors.gestures=true \
@@ -260,6 +255,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.force_on_dc=true
 
+# Memory optimizations
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.qti.sys.fw.bservice_enable=true
+
 #Enable short oos enhancement
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sys.oosenhance.enable=true \
@@ -271,11 +270,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.button_jack_switch=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.mcd_config_file=/system/etc/mcd_default.conf \
-    persist.sys.klo=on \
-    persist.sys.whetstone.level=2 \
-    persist.sys.frozenKernel=true \
-    ro.carrier=unknown \
     ro.vendor.extension_library=libqti-perfd-client.so \
     persist.radio.custom_ecc=1 \
     persist.radio.sib16_support=1 \
@@ -287,3 +281,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.btconfig.vendor=qcom \
     ro.btconfig.chip=QCA6164 \
     persist.power.useautobrightadj=true \
+    persist.radio.apm_sim_not_pwdn=1
