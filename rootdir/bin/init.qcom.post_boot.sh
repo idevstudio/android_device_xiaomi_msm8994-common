@@ -73,20 +73,20 @@ case "$target" in "msm8992")
 	echo 384000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 	echo 1440000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 	echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-	echo "80 580000:59 680000:54 780000:63 880000:85 1180000:98 1280000:94" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
-	echo "98000" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay
-	echo 95 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load
+	echo "80 580000:63 680000:54 780000:60 880000:32 1180000:98 1280000:93" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
+	echo "38000 1280000:58000" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay
+	echo 98 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load
 	echo 1180000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
 	echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/ignore_hispeed_on_notif
 	echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy
 	echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis
 	echo 38000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time
 	echo 20000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
-	echo 380000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_slack
+	echo 180000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_slack
 	echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif
+	echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/align_windows
 	echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load
 	echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/boost
-	echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/align_windows
 	echo 250000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/boostpulse_duration
 
 	# Configure governor settings for big cluster
@@ -101,12 +101,12 @@ case "$target" in "msm8992")
 	echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy
 	echo 0 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis
 	echo 78000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time
-	echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate
-	echo 380000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_slack
+	echo 20000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate
+	echo 180000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_slack
 	echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_migration_notif
+	echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/align_windows
 	echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_sched_load
 	echo 0 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/boost
-	echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/align_windows
 	echo 125000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/boostpulse_duration
 
 	# Enable thermal and bcl hotplug
@@ -167,15 +167,8 @@ case "$target" in "msm8992")
 	echo 1 > /proc/sys/kernel/sched_boost
 
 	# Input boost configuration
-	echo 0:1280000 > /sys/module/cpu_boost/parameters/input_boost_freq
+	echo 0:580000 4:480000 > /sys/module/cpu_boost/parameters/input_boost_freq
 	echo 100 > /sys/module/cpu_boost/parameters/input_boost_ms
-
-	# Set LMK parameters
-	echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
-	echo 0 > /sys/module/lowmemorykiller/parameters/debug_level
-
-	# Android background processes are set to nice 10. Never schedule these on the a57s.
-	echo 9 > /proc/sys/kernel/sched_upmigrate_min_nice
 	;;
 esac
 
@@ -288,7 +281,7 @@ case "$target" in "msm8994")
 	echo "4:4294967295 5:4294967295 6:4294967295 7:4294967295" > /sys/module/msm_performance/parameters/cpu_max_freq
 
 	# Input boost configuration
-	echo 0:1344000 > /sys/module/cpu_boost/parameters/input_boost_freq
+	echo 0:580000 4:480000 > /sys/module/cpu_boost/parameters/input_boost_freq
 	echo 100 > /sys/module/cpu_boost/parameters/input_boost_ms
 
 	# Configure core_ctl module parameters
