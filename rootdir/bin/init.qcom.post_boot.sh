@@ -166,7 +166,9 @@ case "$target" in "msm8992")
 	restorecon -R /sys/devices/system/cpu
 
 	# Relax access permission for display power consumption
+	chown -h system /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
 	chown -h system /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
+	chown -h system /sys/devices/system/cpu/cpu0/core_ctl/max_cpus
 	chown -h system /sys/devices/system/cpu/cpu4/core_ctl/max_cpus
 
 	# Disable sched_boost
@@ -317,7 +319,9 @@ case "$target" in "msm8994")
 	restorecon -R /sys/devices/system/cpu
 
 	# Relax access permission for display power consumption
+	chown -h system /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
 	chown -h system /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
+	chown -h system /sys/devices/system/cpu/cpu0/core_ctl/max_cpus
 	chown -h system /sys/devices/system/cpu/cpu4/core_ctl/max_cpus
 
 	# Disable sched_boost

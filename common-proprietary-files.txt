@@ -342,12 +342,6 @@ vendor/qcril.db
 bin/msm_irqbalance:vendor/bin/msm_irqbalance
 vendor/bin/perfd
 vendor/bin/thermal-engine|5c0edf1e5202c8948179f2151e7ff2211a5da9e2
-vendor/etc/perf-profile0.conf
-vendor/etc/perf-profile1.conf
-vendor/etc/perf-profile2.conf
-vendor/etc/perf-profile3.conf
-vendor/etc/perf-profile4.conf
-vendor/etc/perf-profile5.conf
 vendor/lib/libqti-at.so
 vendor/lib/libqti-gt.so
 vendor/lib/libqti-perfd-client.so
