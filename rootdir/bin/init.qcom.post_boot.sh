@@ -71,7 +71,7 @@ case "$target" in "msm8992")
 
 	# Configure governor settings for little cluster
 	echo 384000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-	echo 1440000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+	echo 1536000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 	echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 	echo "80 580000:63 680000:54 780000:60 880000:32 1180000:98 1280000:93" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
 	echo "38000 1280000:58000" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay
@@ -90,7 +90,7 @@ case "$target" in "msm8992")
 
 	# Configure governor settings for big cluster
 	echo 384000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
-	echo 1824000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
+	echo 1856000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
 	echo "interactive" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
 	echo "80 480000:44 580000:65 680000:61 780000:20 880000:90 1180000:74 1280000:98" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
 	echo "78000 1280000:38000" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay
