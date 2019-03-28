@@ -1,10 +1,12 @@
 [
   {
     "repository": "android_kernel_xiaomi_libra",
-    "target_path": "kernel/xiaomi/libra"
+    "target_path": "kernel/xiaomi/libra",
+    "remote": "own_libra"
   },
   {
     "repository": "android_vendor_xiaomi_msm8994-common",
-    "target_path": "vendor/xiaomi/msm8994-common"
+    "target_path": "vendor/xiaomi/msm8994-common",
+    "remote": "own_libra"
   }
 ]
